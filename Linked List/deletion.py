@@ -59,4 +59,36 @@ def delete_tail(head):
 
     return head
 
-printList(delete_tail(tmp_1))
+# printList(delete_tail(tmp_1))
+
+# deletion with only given pointer
+def delete(ptr):
+    tmp = ptr.next
+    ptr.key = tmp.key
+    ptr.next = tmp.next
+
+# delete(tmp_5)
+# printList(tmp_1)
+
+# deletion of node given at some position
+
+def deleteAtPosition(head, pos):
+    if head is None:
+        return None
+        
+    if pos == 1:
+        return head.next
+        
+    curr = head
+    
+    while(pos - 2):
+        curr = curr.next
+        pos -= 1
+    
+    if curr.next.next is not None:
+        curr.next = curr.next.next
+    else:
+        curr.next = None
+    
+    return head
+
