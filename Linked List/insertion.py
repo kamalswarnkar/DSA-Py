@@ -84,3 +84,22 @@ traversal(tmp_1)
 
 tmp_1 = insert(tmp_1, new_val, 5)
 traversal(tmp_1)
+
+# insertion in sorted linked list
+def insert_in_sorted(head, val):
+    tmp = Node(val)
+    if head is None:
+        return tmp
+    
+    if head.key > val:
+        tmp.next = head
+        return tmp
+    
+    curr = head
+    while curr.next != None and curr.next.key < val:
+        curr = curr.next
+    
+    tmp.next = curr.next
+    curr.next = tmp
+
+    return head
