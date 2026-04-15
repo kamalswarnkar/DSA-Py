@@ -60,14 +60,23 @@ def printList(head):
     
 #     return prev
 
-def reverse_III(head): # using recursion
-    if head == None or head.next == None:
-        return head
+# def reverse_III(head): # using recursion
+#     if head == None or head.next == None:
+#         return head
     
-    rest_head = reverse_III(head.next)
-    rest_tail = head.next
-    rest_tail.next = head
-    head.next = None
+#     rest_head = reverse_III(head.next)
+#     rest_tail = head.next
+#     rest_tail.next = head
+#     head.next = None
 
-    return rest_head
+#     return rest_head
+
+def reverse_IV(curr, prev = None): # using tail recursion
+    if curr == None:
+        return prev
+    
+    next = curr.next
+    curr.next = prev
+    
+    return reverse_IV(next, curr)
 
