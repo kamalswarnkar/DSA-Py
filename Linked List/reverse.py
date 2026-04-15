@@ -32,16 +32,42 @@ def printList(head):
         print(curr.key, end="->")
         curr = curr.next
 
-def reverse(head):
-    prev = None
-    curr = head
+# def reverse_I(head): # using stack
+#     stack = []
+#     curr = head
 
-    while curr:
-        next = curr.next
-        curr.next = prev
-        prev = curr
-        curr = next
+#     while curr is not None:
+#         stack.append(curr.key)
+#         curr = curr.next
     
-    return prev
+#     curr = head
 
-printList(reverse(tmp_1))
+#     while curr is not None:
+#         curr.key = stack.pop()
+#         curr = curr.next
+    
+#     return head
+
+# def reverse_II(head):
+#     prev = None
+#     curr = head
+
+#     while curr:
+#         next = curr.next
+#         curr.next = prev
+#         prev = curr
+#         curr = next
+    
+#     return prev
+
+def reverse_III(head): # using recursion
+    if head == None or head.next == None:
+        return head
+    
+    rest_head = reverse_III(head.next)
+    rest_tail = head.next
+    rest_tail.next = head
+    head.next = None
+
+    return rest_head
+
