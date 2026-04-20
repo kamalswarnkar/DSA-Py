@@ -42,34 +42,19 @@ def printList(head):
         print(curr.key, end=" ⇆ ")
         curr = curr.next
 
-val = 45
-
-# insert at beginning
-def insert_at_beginning(head, val):
-    tmp = Node(val)
-
-    if head != None:
-        head.prev = tmp
-    
-    tmp.next = head
-
-    return tmp
-
-#insert at end
-def insert_at_end(head, val):
-    tmp = Node(val)
-
-    if head == None:
-        return tmp
+def reverse_ll(head):
+    if head == None or head.next == None:
+        return head
     
     curr = head
+    prev = None
 
-    while curr.next != None:
-        curr = curr.next
+    while curr:
+        prev = curr
+        curr.prev, curr.next = curr.next, curr.prev
+        curr = curr.prev
     
-    curr.next = tmp
-    tmp.prev = curr
+    return prev
 
-    return head
-
-printList(insert_at_end(tmp_1, val))
+printList(reverse_ll(tmp_1))
+    
