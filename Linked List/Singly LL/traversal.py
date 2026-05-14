@@ -9,6 +9,7 @@ def printList(head):
     while(curr != None):
         print(curr.key, end="->")
         curr = curr.next
+    print("None")
 
 head = Node(10)
 head.next = Node(20)
