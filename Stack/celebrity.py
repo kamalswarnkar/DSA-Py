@@ -28,9 +28,6 @@ def naive_method(mat): # O(n^2)
                 elif mat[j][i] == 0:
                     celeb[i] += 1
                     break
-                        
-                
-            
         
     for i in range(r):
         if celeb[i] == 0:
@@ -60,7 +57,7 @@ def efficient_method(mat): # O(n)
             
     cand = stack.pop()
 
-    # to verify candidate    
+    # to verify candi    
     for i in range(r):
         if i != cand:
             if mat[cand][i] == 1:
