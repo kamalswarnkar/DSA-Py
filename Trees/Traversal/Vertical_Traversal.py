@@ -14,7 +14,7 @@ Traversal:
 1 5 
 3
 
-Time Complexity: O(N * log(K)), worst-case: O(N * log(N))
+Time Complexity: O(N + K log K)
 Space Complexity: O(N)
 
 where,
@@ -30,7 +30,7 @@ class Node:
         self.left = None
         self.right = None
 
-def vertical_traversal(root):
+def vertical_traversal(root): 
     if root is None:
         return
     
@@ -65,3 +65,48 @@ def vertical_traversal(root):
             print(j, end=" ")
         
         print()
+
+def topView(root): # Keeps only the first node seen at that $hd$ (highest level).
+    if root is None:
+        return
+    
+    mp = {}
+    q = collections.deque([(root, 0)]) # update - no need to maintain 2 seperate queues
+    
+    while q:
+        curr, hd = q.popleft()
+        
+        if hd not in mp:
+            mp[hd] = curr.val
+        
+        if curr.left is not None:
+            q.append((curr.left, hd - 1))
+
+        if curr.right is not None:
+            q.append((curr.right, hd + 1))
+    
+    for i in sorted(mp):
+        print(mp[i], end=" ")
+    print()
+
+def bottomView(root): # Keeps overwriting so only the last node seen remains (lowest level).
+    if root is None:
+        return
+    
+    mp = {}
+    q = collections.deque([(root, 0)])
+    
+    while len(q) > 0:
+        curr, hd = q.popleft()
+        
+        mp[hd] = curr.val
+        
+        if curr.left is not None:
+            q.append((curr.left, hd - 1))
+
+        if curr.right is not None:
+            q.append((curr.right, hd + 1))
+    
+    for i in sorted(mp):
+        print(mp[i], end=" ")
+    print()
