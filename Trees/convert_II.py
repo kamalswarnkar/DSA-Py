@@ -11,6 +11,9 @@ Space Complexity: O(N)
 
 where:
 N = number of nodes
+
+Note: Binary Tree can be constructed using only (PreOrder & Inorder) or (InOrder & PostOrder)
+      but not using (PreOrder & PostOrder) unless it is Full Binary Tree
 """
 
 class Node:
