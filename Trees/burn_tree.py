@@ -26,6 +26,12 @@ N = number of nodes
 target_node = None
 NEG_INF = float('-inf')
 
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
 def getParent(root, parent, par):
     if root is None:
         return
