@@ -51,7 +51,7 @@ def diameter_I(root): # Naive Solution
 This function is efficient and mainly returns the height,
 but in the process it sets the 'res' which is the diameter
 """
-res = float('-inf')
+res = 0
 def diameter_II(root):
     if root is None:
         return 0
@@ -61,5 +61,12 @@ def diameter_II(root):
 
     global res
     res = max(res, 1 + lh + rh)
+    """
+    diameter - Longest path between any two nodes
+    so it can either be taken as max no of nodes, or max no. of edges
+
+    for nodes - (1 + lh + rh)
+    for edges - (lh + rh)
+    """
 
     return 1 + max(lh, rh)
