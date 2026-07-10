@@ -50,6 +50,18 @@ def kthFromLeaf(root, k):
         dfs(node.right)
 
         path.pop() # pop when going up the tree
+
+        """
+        This append → recurse → pop structure is the essence of backtracking on trees
+
+        <Template>
+            path.append(node)
+
+            dfs(node.left)
+            dfs(node.right)
+
+            path.pop()
+        """
     
     dfs(root)
 
