@@ -40,6 +40,8 @@ def isFoldable(root):
         if (a and not b) or (not a and b):
             return False
         
+        # Only the mirror structure is compared; node values are ignored.
+        
         return isMirror(a.left, b.right) and isMirror(a.right, b.left)
     
     return isMirror(root.left, root.right)
