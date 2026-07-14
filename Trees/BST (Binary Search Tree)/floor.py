@@ -1,5 +1,26 @@
 """
-we'll find either the exact or just smaller number than the given number
+Floor in a Binary Search Tree
+
+The floor of a key is the greatest value in the BST
+that is less than or equal to the given key.
+
+This file contains:
+1. Recursive solution
+2. Iterative solution
+
+Time Complexity : O(H)
+Space Complexity:
+    Recursive : O(H)
+    Iterative : O(1)
+
+where,
+N = number of nodes
+H = height of the BST
+
+Note:
+If no floor exists (all node values are greater than the key),
+the function returns None (iterative) or -∞ (recursive), depending
+on the chosen implementation.
 """
 
 class Node:
@@ -8,7 +29,7 @@ class Node:
         self.left = None
         self.right = None
 
-def floor(root, key):
+def floor_rec(root, key): # recursive method
     ans = float("-inf")
 
     def helper(node):
@@ -30,4 +51,17 @@ def floor(root, key):
     
     helper(root)
 
+    return ans
+
+def floor_ite(root, key): # iterative method
+    ans = None
+    while root is not None:
+        if root.val == key:
+            return root.val
+        elif root.val > key:
+            root = root.left
+        else:
+            ans = root.val
+            root = root.right
+    
     return ans
