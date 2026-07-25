@@ -16,15 +16,17 @@ Array Representation:
 Supported Operations:
 1. Insert
 2. Extract Minimum
-3. Decrease Key
-4. Delete Key
-5. Min Heapify
-6. Convert Array → Tree
+3. Build Heap
+4. Decrease Key
+5. Delete Key
+6. Min Heapify
+7. Convert Array → Tree
 
 Time Complexity:
 
 Insert            : O(log N)
 Extract Min       : O(log N)
+Build Heap        : O(N)
 Decrease Key      : O(log N)
 Delete            : O(log N)
 Min Heapify       : O(log N)
@@ -37,13 +39,23 @@ Space Complexity:
 where,
 N = number of elements
 
-Note:
-MinHeapify assumes that only the current node violates the
-heap property while both its subtrees already satisfy it.
+Notes:
+1.  MinHeapify assumes that only the current node violates the
+    heap property while both its subtrees already satisfy it.
 
-Max Heap is the mirror implementation of a Min Heap.
-Simply reverse all comparison operators (< ↔ >) and
-replace minimum operations with maximum operations.
+2.  Max Heap is the mirror implementation of a Min Heap.
+    Simply reverse all comparison operators (< ↔ >) and
+    replace minimum operations with maximum operations.
+
+3.  Build Heap runs in O(N), not O(N log N), because most heapify
+    operations occur on nodes near the leaves, where the subtree
+    heights are very small.
+
+4.  Interview Notes:
+• Heap is NOT a Binary Search Tree.
+• Only the root is guaranteed to be the minimum element.
+• There is no ordering between sibling nodes or across subtrees.
+• Build Heap (O(N)) is more efficient than inserting N elements one by one (O(N log N)).
 """
 
 class Node:
@@ -111,6 +123,13 @@ class MinHeap: # Array Representation
 
         return res
 
+    def buildHeap(self):
+        n = len(self.arr)
+        start_idx = n // 2 - 1 # starting from last non-leaf node
+
+        for i in range(start_idx, -1, -1): # Heapify every internal node in bottom-up order
+            self.minHeapify(i)
+
     def decreaseKey(self, i, x):
         self.arr[i] = x
 
@@ -127,6 +146,15 @@ class MinHeap: # Array Representation
 
         self.decreaseKey(i, float("-inf"))
         self.extractMin()
+
+"""
+Converts the heap's array representation into
+a pointer-based binary tree.
+
+Useful for visualization and traversals.
+Heap operations should still be performed
+on the array representation.
+"""
 
 def buildTree(arr): # Tree representation
     if not arr:
