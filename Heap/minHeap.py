@@ -40,6 +40,10 @@ N = number of elements
 Note:
 MinHeapify assumes that only the current node violates the
 heap property while both its subtrees already satisfy it.
+
+Max Heap is the mirror implementation of a Min Heap.
+Simply reverse all comparison operators (< ↔ >) and
+replace minimum operations with maximum operations.
 """
 
 class Node:
@@ -48,7 +52,7 @@ class Node:
         self.left = None
         self.right = None
 
-class MinHeap: # Array Rpresentation
+class MinHeap: # Array Representation
     def __init__(self):
         self.arr = []
 
