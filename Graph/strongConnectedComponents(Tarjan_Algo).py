@@ -41,7 +41,6 @@ def totalStrongComponents(adj):
 
     disc = [-1] * n
     low = [-1] * n
-    par = [-1] * n
     inStack = [False] * n
     stack = []
 
