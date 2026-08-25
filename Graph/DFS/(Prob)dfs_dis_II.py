@@ -1,24 +1,25 @@
 """
 Counting Islands using DFS
 
-A grid can be treated as an implicit graph where each land cell
-represents a vertex and adjacent land cells represent connections.
+Problem:
+    A grid can be treated as an implicit graph where each land cell
+    represents a vertex and adjacent land cells represent connections.
 
-Since an island is a connected group of land cells, counting islands
-is equivalent to counting the connected components of the grid.
+    Since an island is a connected group of land cells, counting islands
+    is equivalent to counting the connected components of the grid.
 
-For every unvisited land cell:
-1. Count it as a new island.
-2. Start DFS from that cell.
-3. Visit all connected land cells in all 8 directions.
-4. Continue until every cell has been checked.
+    For every unvisited land cell:
+    1. Count it as a new island.
+    2. Start DFS from that cell.
+    3. Visit all connected land cells in all 8 directions.
+    4. Continue until every cell has been checked.
 
-Directions considered:
-    • Up
-    • Down
-    • Left
-    • Right
-    • Four diagonals
+    Directions considered:
+        • Up
+        • Down
+        • Left
+        • Right
+        • Four diagonals
 
 Time Complexity:
     O(N × M)
@@ -50,7 +51,7 @@ def dfs(adj, r, c, vis, direc):
         if (0 <= nr < row) and (0 <= nc < col) and adj[nr][nc] == 'L' and (not vis[nr][nc]):
             dfs(adj, nr, nc, vis, direc)
     
-def countIslands(self, grid):
+def countIslands(grid):
     row = len(grid)
     col = len(grid[0])
         
