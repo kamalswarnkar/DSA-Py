@@ -51,7 +51,7 @@ def solveMazeRec(maze, i, j, sol):
         return True
 
     if isSafe(maze, i, j):
-        sol[i][j] = True
+        sol[i][j] = 1
 
         if solveMazeRec(maze, i + 1, j, sol):
             return True
