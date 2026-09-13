@@ -2,11 +2,13 @@
 Generate Subsets
 
 Problem:
-    Given an array of distinct integers, generate all possible subsets of the array.
-    The empty subset [] must also be included.
-    The order of the subsets does not matter.
+    Given an array of distinct integers, generate all possible subsets
+    of the array. The empty subset [] must also be included.
 
-    Goal: <Include/Exclude>
+Backtracking Pattern:
+    For every element, make two choices:
+        1. Include the element.
+        2. Exclude the element.
 """
 
 def subset(arr):
