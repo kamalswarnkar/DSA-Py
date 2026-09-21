@@ -1,0 +1,9 @@
+Different kind of problems which can be solved using LCS:
+
+1. Diff Utility
+2. Minimum insertion and deletion to convert s1 into s2
+3. Shortest Common Subsequence (SCS)
+4. Longest Plaindromic Subsequence (LPS)
+5. Longest Repeating Subsequence (LRS)
+6. Space Optimized Solution of LCS
+7. Printing LCS
