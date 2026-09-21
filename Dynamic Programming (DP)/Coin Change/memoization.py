@@ -55,7 +55,7 @@ Note:
 """
 
 def countWays(coins, n, s):
-    memo = [[-1] * (n + 1) for _ in range(s + 1)]
+    memo = [[-1] * (s + 1) for _ in range(n + 1)]
 
     def solve(i, j):
         if j == 0:
