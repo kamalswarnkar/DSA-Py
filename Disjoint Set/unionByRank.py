@@ -1,5 +1,23 @@
 """
-Union By Rank Implementation
+Union by Rank in Disjoint Set (DSU)
+
+Problem:
+    Implement Disjoint Set Union operations using rank to
+    keep the representative trees relatively balanced.
+
+Approach:
+    1. Initialize each element as its own parent with rank 0.
+    2. Find the representative of each element's set.
+    3. During Union, attach the root with smaller rank to the
+       root with larger rank.
+    4. If both roots have equal rank, attach one root to the
+       other and increment the new root's rank.
+
+Time Complexity:
+    Find:  O(N) worst case without path compression.
+    Union: O(N) worst case without path compression.
+
+Space Complexity: O(N) for the parent and rank arrays.
 """
 
 def disjointSet(n):
